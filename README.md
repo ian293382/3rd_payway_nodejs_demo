@@ -10,7 +10,7 @@
 - name var(char255)
 - amount (integer unsigned == 100)
 - description (text)
-- per_order 作為預留金流交易物品 預繳扣費額度
+- per_order 作為預留金流交易物品 預繳扣費額度 transactions
 - price 價格
 => 同一時間一堆人點擊 到真正付款時候才扣掉額度
 
