@@ -1,0 +1,8 @@
+[mysqld]
+pid-file = /var/run/mysqld/mysqld.pid
+socket = /var/run/mysqld/mysqld.sock
+datadir = /var/lib/mysqld
+log-error = /var/lib/mysql/error.log
+#bind-address = 127.0.0.1
+symbolic-links=0
+secure-file-priv =  ""
