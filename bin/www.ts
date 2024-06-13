@@ -5,6 +5,8 @@
 import 'module-alias/register';
 import { config } from 'dotenv';
 config();
+// 測試有沒有印出來就好
+// console.log(process.env)
 
 import app from '@/app';
 import Debug from 'debug';
