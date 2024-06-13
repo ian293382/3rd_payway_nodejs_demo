@@ -7,15 +7,27 @@ import logger from 'morgan';
 
 import indexRouter from '@/routes/index';
 import usersRouter from '@/routes/users';
+import { Knex } from "knex";
+import { createDatabase } from '@/utils';
 
 class App {
   public app: express.Application;
+  private knexSql: Knex;
 
   constructor() {
     this.app = express();
     this.config();
+
+    // 引入knex後要實體化才會運作
+    this.knexSql = createDatabase(),
+
     this.routerSetup();
     this.errorHandler();
+    // select * from products
+    this.knexSql.select().from('products').then((result) => {
+      console.log(result);
+    })
+
   }
 
   private config() {
