@@ -14,8 +14,8 @@ export const createDatabase = () => {
             },
             pool: {min: 2, max: 10},
     })
-}
-
+};
+// 實作isJson parse 解析看看 成功就return boolean True 就能讓程式碼進行下一步驟
 export  const isJson = (value: string) => {
     try { 
         return Boolean(JSON.parse(value));
