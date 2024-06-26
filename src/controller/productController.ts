@@ -28,7 +28,7 @@ export class ProductController implements IProductController{
     }
     // 因為findAll 建立在res伺服器給出的請求才能用knex去找
     findAll: IProductController['findAll'] = async (_req, res, _next) => {
-            const result = this.productModel.findAll()
+            const result = await this.productModel.findAll() // 一定要裝await
             res.json(result);
         }
 }
