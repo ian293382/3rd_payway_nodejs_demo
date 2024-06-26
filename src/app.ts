@@ -11,6 +11,7 @@ import { Knex } from "knex";
 import { createDatabase } from '@/utils';
 import { ModelContext, modelManager } from './manager/modelManager';
 import { ControllerContext, controllerManager } from './manager/controllerManager';
+import { mountProductRouter } from './routes/product';
 
 class App {
   public app: express.Application;
@@ -33,7 +34,7 @@ class App {
     this.errorHandler();
     // select * from products
     this.knexSql.select().from('products').then((result) => {
-      console.log(result);
+      // console.log(result);
     })
 
   }
@@ -53,6 +54,10 @@ class App {
   private routerSetup() {
     this.app.use('/', indexRouter);
     this.app.use('/users', usersRouter);
+    // 將router傳入時要把他的參數也要傳入進去 那要如何傳入要加this.controllerCtx
+    this.app.use(
+    '/products',
+    mountProductRouter({controllerCtx: this.controllerCtx}))
   }
 
   private errorHandler() {
