@@ -10,7 +10,6 @@ export interface ModelContext {
 export const  modelManager = ( { knexSql }: { knexSql: Knex }): ModelContext => {
     // return 各種model
     const productModel = ProductModel.createModel({ knexSql })
-
     return { productModel }; 
 
 }
