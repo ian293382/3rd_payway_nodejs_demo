@@ -26,7 +26,7 @@ export class ProductController implements IProductController{
     constructor({ productModel }:ProductControllerProp) {
         this.productModel = productModel;
     }
-    // 因為findAll 建立在res伺服器給出的請求才能用knex去找
+    // 因為findAll 建立在res伺服器給出的請求才能用knex去找 一定要看結果是不是CamelCase
     findAll: IProductController['findAll'] = async (_req, res, _next) => {
             const result = await this.productModel.findAll() // 一定要裝await
             res.json(result);
