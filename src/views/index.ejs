@@ -5,8 +5,32 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <h2 class="class"><yea></yea></h2>
+    <div id="app">
+      <table v-bind:style="{width: '100%', textAlign: 'center'}">
+        <thead>
+          <!-- 用 v-bind 在nodejs上綁定vue變數名稱 products(js) => product in products (vue)   -->
+          <tr >
+            <th>ID</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="product in products" :key="product.id" >
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.amount }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.description }}</td>
+            <td> <input type="number" min="0" max="100" step="1"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="/javascripts/index.js"></script>
 </html>
