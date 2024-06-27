@@ -24,7 +24,7 @@ export abstract class Base<T> implements IBase<T> {
     // 實體化需要1.建構子開始建立物件 並且給予型別 ({xx, yy} :{xx:string , yy:int } )
     // yy?:int  問號符號 代表可有可沒有
     // 實體化需求2 內部有參數都要先宣告 大多數protect
-    // 屬性 'tableName' 沒有初始設定式，且未在建構函式中明確指派。 => 就是要給他出使值 = ''
+    // 出現錯誤：屬性 'tableName' 沒有初始設定式，且未在建構函式中明確指派。 => 就是要給他初使值 = ''
 
     // 之後會導入mysql table(schema) 近來做出裡所以給他空的{} 去做表格處理之後做繼承就好處理
     protected knexSql: Knex;
